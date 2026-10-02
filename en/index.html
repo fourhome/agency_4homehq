@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4HOME Agency — High-Performance Digital Systems for Home Services</title>
+  <meta name="description" content="We build the digital presence of market-leading home improvement companies. Instant-load web infrastructure, systematic cinematic video, and full bilingual scale." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/png" href="../favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:#0F172A; --bg-2:#020617; --surface:#1E293B; --surface-2:#334155; --surface-3:#475569;
+      --border:#334155; --text:#F8FAFC; --text-muted:#94A3B8; --text-display:#FFFFFF;
+      --primary:#2563EB; --primary-deep:#1D4ED8; --primary-soft:#3B82F6;
+      --accent:#F59E0B; --accent-bold:#D97706; --accent-soft:#FBBF24;
+      --success:#10B981; --radius:12px; --radius-lg:20px;
+      --shadow:0 20px 50px rgba(15,23,42,.45);
+      --display:'Lexend',system-ui,sans-serif;
+      --body:'Inter',Arial,sans-serif;
+      --mono:'JetBrains Mono',ui-monospace,monospace;
+      --maxw:1180px; --nav-h:64px;
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg-2);color:var(--text);font-family:var(--body);font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    img{max-width:100%;display:block}
+    a{color:var(--accent);text-decoration:none}
+    h1,h2,h3,h4{font-family:var(--display);font-weight:600;line-height:1.06;color:var(--text-display);text-wrap:balance}
+    ::selection{background:var(--accent);color:#000}
+    :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+    .ambient{position:fixed;inset:0;z-index:0;pointer-events:none;
+      background:radial-gradient(ellipse 80% 60% at 90% 110%,rgba(245,158,11,.12),transparent 60%),
+                 radial-gradient(ellipse 60% 50% at -5% -5%,rgba(37,99,235,.08),transparent 55%)}
+    .shell{position:relative;z-index:1;max-width:var(--maxw);margin:0 auto;padding:0 clamp(1.25rem,4vw,2.5rem)}
+    .kicker{font-family:var(--mono);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;
+      color:var(--accent);display:inline-flex;align-items:center;gap:8px}
+    .kicker::before{content:"";display:inline-block;width:18px;height:1.5px;background:var(--accent)}
+
+    .nav{position:fixed;inset:0 0 auto 0;z-index:50;height:var(--nav-h);display:flex;align-items:center;
+      background:rgba(2,6,23,.85);backdrop-filter:blur(20px) saturate(160%);
+      border-bottom:1px solid rgba(51,65,85,.5);transition:background .3s}
+    .nav .shell{display:flex;align-items:center;justify-content:space-between;width:100%}
+    .nav__logo{display:flex;align-items:center;gap:8px}
+    .nav__logo img{height:28px;width:auto}
+    .nav__badge{font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;
+      background:rgba(245,158,11,.15);border:1px solid rgba(245,158,11,.3);color:var(--accent);
+      padding:2px 8px;border-radius:4px}
+    .nav__links{display:flex;align-items:center;gap:28px}
+    .nav__links a{color:var(--text-muted);font-size:.9rem;font-family:var(--display);font-weight:400;transition:color .2s}
+    .nav__links a:hover{color:var(--text)}
+    .nav__cta{background:var(--accent)!important;color:#000!important;font-weight:600!important;
+      padding:8px 20px;border-radius:var(--radius);font-size:.875rem!important;
+      transition:background .2s,transform .15s}
+    .nav__cta:hover{background:var(--accent-soft)!important;transform:translateY(-1px)}
+    .nav__burger{display:none;background:none;border:none;cursor:pointer;padding:6px}
+    .nav__burger span{display:block;width:22px;height:2px;background:var(--text);margin:4px 0;border-radius:2px;transition:.3s}
+
+    .hero{position:relative;min-height:100svh;display:flex;align-items:center;justify-content:center;
+      padding:calc(var(--nav-h) + 5rem) clamp(1.25rem,4vw,2.5rem) 6rem;overflow:hidden}
+    .hero-bg{position:absolute;inset:0;z-index:0;background-image:url('../hero-bg.jpg');background-size:cover;background-position:center 30%}
+    .hero-bg::after{content:"";position:absolute;inset:0;
+      background:linear-gradient(160deg,rgba(2,6,23,.92) 0%,rgba(2,6,23,.7) 60%,rgba(2,6,23,.88) 100%)}
+    .hero-content{position:relative;z-index:2;text-align:center;max-width:840px;margin:0 auto}
+    .hero-kicker{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;
+      color:var(--accent);display:inline-flex;align-items:center;gap:10px;margin-bottom:1.5rem;
+      border:1px solid rgba(245,158,11,.25);background:rgba(245,158,11,.07);padding:6px 16px;border-radius:100px}
+    .hero-kicker .dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
+    .hero h1{font-size:clamp(2.4rem,6vw,4.4rem);font-weight:700;line-height:1.04;margin-bottom:1.5rem;letter-spacing:-.02em}
+    .hero h1 em{font-style:normal;color:var(--accent)}
+    .hero-sub{font-size:clamp(1rem,2vw,1.2rem);color:var(--text-muted);max-width:640px;margin:0 auto 2.5rem;line-height:1.65}
+    .hero-badges{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:2.5rem}
+    .badge{font-family:var(--mono);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;
+      background:rgba(30,41,59,.8);border:1px solid var(--border);color:var(--text-muted);
+      padding:6px 14px;border-radius:6px;display:flex;align-items:center;gap:8px}
+    .hero-ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:var(--radius);
+      font-family:var(--display);font-weight:600;font-size:.95rem;cursor:pointer;transition:all .2s;border:none;text-decoration:none}
+    .btn-primary{background:var(--accent);color:#000}
+    .btn-primary:hover{background:var(--accent-soft);transform:translateY(-2px);box-shadow:0 8px 24px rgba(245,158,11,.35)}
+    .btn-ghost{background:transparent;color:var(--text);border:1px solid var(--border)}
+    .btn-ghost:hover{background:var(--surface);border-color:var(--surface-2);transform:translateY(-1px)}
+
+    .stats-strip{position:relative;z-index:1;background:var(--surface);
+      border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2rem 0}
+    .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+    .stat{text-align:center;padding:1rem 1.5rem;border-right:1px solid var(--border)}
+    .stat:last-child{border-right:none}
+    .stat-num{font-family:var(--display);font-weight:700;font-size:2.2rem;color:var(--accent);
+      display:block;line-height:1;margin-bottom:.25rem}
+    .stat-label{font-family:var(--mono);font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted)}
+
+    section{position:relative;z-index:1}
+    .section{padding:6rem 0}
+    .section-header{text-align:center;max-width:680px;margin:0 auto 4rem}
+    .section-header h2{font-size:clamp(2rem,4vw,3rem);margin:.75rem 0 1rem}
+    .section-header p{color:var(--text-muted);font-size:1.05rem}
+
+    .problem{background:var(--bg)}
+    .problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.75rem;margin-top:3rem;align-items:stretch}
+    .problem-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);
+      padding:2.25rem 2rem;position:relative;overflow:hidden;display:flex;flex-direction:column;
+      transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+    .problem-card:hover{transform:translateY(-4px);border-color:rgba(245,158,11,.35);box-shadow:0 20px 50px rgba(0,0,0,.4)}
+    .problem-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;
+      background:linear-gradient(90deg,transparent,rgba(245,158,11,.45),transparent)}
+    .problem-icon-wrap{width:46px;height:46px;border-radius:12px;background:rgba(245,158,11,.08);
+      border:1px solid rgba(245,158,11,.22);display:flex;align-items:center;justify-content:center;
+      margin-bottom:1.4rem;flex-shrink:0}
+    .problem-card h3{font-size:1.15rem;font-weight:600;line-height:1.35;margin-bottom:.85rem;color:var(--text-display);
+      min-height:3rem;display:flex;align-items:center}
+    .problem-card p{color:var(--text-muted);font-size:.92rem;line-height:1.65;margin:0;flex:1}
+
+    .portfolio{background:linear-gradient(180deg,var(--bg) 0%,var(--bg-2) 100%)}
+    .portfolio-note{text-align:center;font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;
+      text-transform:uppercase;color:var(--accent-soft);opacity:.85;margin-bottom:3.5rem}
+    .portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem;align-items:stretch}
+    .portfolio-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);
+      overflow:hidden;cursor:pointer;display:flex;flex-direction:column;height:100%;
+      transition:transform .3s cubic-bezier(0.16,1,0.3,1),box-shadow .3s ease,border-color .3s ease}
+    .portfolio-card:hover{transform:translateY(-6px);box-shadow:0 24px 60px rgba(0,0,0,.5);border-color:rgba(245,158,11,.45)}
+    .portfolio-media{aspect-ratio:16/10;width:100%;position:relative;overflow:hidden;background:#090d16;border-bottom:1px solid rgba(51,65,85,.6)}
+    .portfolio-media img{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .45s cubic-bezier(0.16,1,0.3,1),filter .4s ease}
+    .portfolio-card:hover .portfolio-media img{transform:scale(1.06);filter:brightness(1.08)}
+    .portfolio-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(2,6,23,.85) 100%);
+      display:flex;align-items:flex-end;justify-content:space-between;padding:1rem 1.25rem;opacity:0;transition:opacity .3s ease}
+    .portfolio-card:hover .portfolio-overlay{opacity:1}
+    .portfolio-badge{font-family:var(--mono);font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;
+      background:var(--accent);color:#000;font-weight:700;padding:5px 12px;border-radius:4px;box-shadow:0 4px 14px rgba(245,158,11,.4)}
+    .portfolio-live-hint{font-family:var(--mono);font-size:.62rem;color:var(--text);letter-spacing:.08em;background:rgba(15,23,42,.85);padding:4px 10px;border-radius:4px;border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(6px)}
+    .portfolio-meta{padding:1.6rem 1.6rem 1.8rem;display:flex;flex-direction:column;flex:1;justify-content:flex-start}
+    .portfolio-tag{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;
+      color:var(--accent);margin-bottom:.65rem;display:block;font-weight:500}
+    .portfolio-meta h3{font-size:1.15rem;font-weight:600;line-height:1.35;margin-bottom:.65rem;color:var(--text-display);
+      min-height:3.1rem;display:flex;align-items:center}
+    .portfolio-meta p{color:var(--text-muted);font-size:.9rem;line-height:1.65;margin:0;flex:1}
+
+    .services{background:var(--bg-2)}
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+    .service-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);
+      padding:2.5rem 2rem;position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s,border-color .25s}
+    .service-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:rgba(245,158,11,.3)}
+    .service-letter{font-family:var(--mono);font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;
+      color:var(--accent);display:inline-flex;align-items:center;gap:8px;margin-bottom:1.25rem}
+    .service-card h3{font-size:1.25rem;margin-bottom:1rem}
+    .service-card p{color:var(--text-muted);font-size:.95rem;margin-bottom:1.5rem;line-height:1.7}
+    .service-price{border-top:1px solid var(--border);padding-top:1.25rem}
+    .price-setup{font-family:var(--display);font-weight:700;font-size:1.6rem;color:var(--text-display)}
+    .price-from{font-size:.8rem;color:var(--text-muted);font-weight:400;margin-right:4px}
+    .price-monthly{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;color:var(--text-muted);margin-top:.25rem}
+    .price-monthly strong{color:var(--accent-soft)}
+    .service-items{list-style:none;margin:1.25rem 0;display:flex;flex-direction:column;gap:.5rem}
+    .service-items li{display:flex;align-items:flex-start;gap:8px;font-size:.875rem;color:var(--text-muted);line-height:1.5}
+    .service-items li::before{content:"→";color:var(--accent);flex-shrink:0}
+    .service-cta-link{display:inline-flex;align-items:center;gap:6px;font-size:.85rem;
+      font-family:var(--display);font-weight:600;color:var(--accent);margin-top:1rem;cursor:pointer}
+
+    .method{background:var(--bg)}
+    .method-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;position:relative}
+    .method-step{padding:2rem 1.5rem;text-align:center}
+    .method-num{width:56px;height:56px;border-radius:50%;border:1px solid var(--border);background:var(--surface);
+      display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;
+      font-family:var(--mono);font-size:.8rem;color:var(--accent)}
+
+    .pricing{background:var(--bg-2)}
+    .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+    .pricing-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);
+      overflow:hidden;position:relative;transition:transform .25s,box-shadow .25s}
+    .pricing-card.featured{border-color:rgba(245,158,11,.4);background:linear-gradient(180deg,rgba(245,158,11,.05) 0%,var(--surface) 40%)}
+    .pricing-head{padding:2rem 2rem 1.5rem;border-bottom:1px solid var(--border)}
+    .pricing-eje{font-family:var(--mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem;display:block}
+    .pricing-amount{font-family:var(--display);font-weight:700;font-size:2rem;color:var(--text-display)}
+    .pricing-body{padding:1.5rem 2rem 2rem}
+    .pricing-items{list-style:none;display:flex;flex-direction:column;gap:.6rem;margin-bottom:1.75rem}
+    .pricing-items li{display:flex;align-items:flex-start;gap:8px;font-size:.875rem;color:var(--text-muted)}
+    .pricing-items li .chk{color:var(--success)}
+    .pricing-btn{display:block;width:100%;padding:13px;border-radius:var(--radius);text-align:center;
+      font-family:var(--display);font-weight:600;font-size:.9rem;cursor:pointer;
+      border:1px solid var(--border);background:transparent;color:var(--text);transition:all .2s;text-decoration:none}
+    .pricing-card.featured .pricing-btn{background:var(--accent);color:#000;border-color:var(--accent)}
+
+    .intake{background:var(--bg)}
+    .intake-wrap{max-width:680px;margin:0 auto;background:var(--surface);border:1px solid var(--border);
+      border-radius:var(--radius-lg);padding:3rem;position:relative;overflow:hidden}
+    .wizard-progress{display:flex;gap:6px;margin-bottom:2.5rem}
+    .wp-step{flex:1;height:4px;border-radius:2px;background:var(--surface-2);transition:background .4s}
+    .wp-step.done{background:var(--success)}
+    .wp-step.active{background:var(--accent)}
+    .wizard-step{display:none}
+    .wizard-step.active{display:block;animation:fadeInUp .35s ease}
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+    .wizard-step h3{font-size:1.25rem;margin-bottom:.4rem}
+    .wizard-step .step-sub{color:var(--text-muted);font-size:.9rem;margin-bottom:1.75rem}
+    .step-count{font-family:var(--mono);font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:.5rem}
+    .radio-grid{display:grid;grid-template-columns:1fr 1fr;gap:.85rem}
+    .radio-option{position:relative;display:flex;align-items:center;gap:12px;padding:1rem 1.15rem;
+      border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;font-size:.95rem;
+      color:var(--text-muted);background:var(--bg);transition:all .2s ease;user-select:none}
+    .radio-option:hover{border-color:var(--surface-3);background:var(--surface);color:var(--text)}
+    .radio-option input{position:absolute;opacity:0;pointer-events:none}
+    .radio-dot{width:20px;height:20px;border-radius:50%;border:2px solid var(--surface-3);
+      background:var(--surface);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .2s ease}
+    .radio-dot::after{content:"";width:8px;height:8px;border-radius:50%;background:#000;opacity:0;transform:scale(0);transition:all .2s cubic-bezier(0.34, 1.56, 0.64, 1)}
+    .radio-option:has(input:checked),
+    .radio-option.selected{border-color:var(--accent)!important;background:rgba(245,158,11,.14)!important;
+      color:#FFFFFF!important;font-weight:600;box-shadow:0 0 0 1px var(--accent),0 6px 20px rgba(245,158,11,.22);
+      transform:translateY(-2px)}
+    .radio-option:has(input:checked) .radio-dot,
+    .radio-option.selected .radio-dot{border-color:var(--accent)!important;background:var(--accent)!important;
+      box-shadow:0 0 0 4px rgba(245,158,11,.3)}
+    .radio-option:has(input:checked) .radio-dot::after,
+    .radio-option.selected .radio-dot::after{opacity:1;transform:scale(1)}
+    .form-field{margin-bottom:1rem}
+    .form-field label{display:block;font-size:.85rem;color:var(--text-muted);margin-bottom:.4rem;font-family:var(--display);font-weight:500}
+    .form-field input,.form-field textarea{width:100%;background:var(--bg);border:1px solid var(--border);
+      border-radius:var(--radius);padding:.75rem 1rem;color:var(--text);font-family:var(--body);font-size:.95rem;transition:border-color .2s}
+    .form-field input:focus,.form-field textarea:focus{outline:none;border-color:var(--accent)}
+    .form-field textarea{resize:vertical;min-height:100px}
+    .form-2col{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .wizard-nav{display:flex;justify-content:space-between;align-items:center;margin-top:2rem}
+    .btn-back{background:transparent;border:1px solid var(--border);color:var(--text-muted);
+      padding:10px 20px;border-radius:var(--radius);cursor:pointer;font-family:var(--display);font-size:.875rem}
+    .btn-next{background:var(--accent);color:#000;padding:12px 28px;border-radius:var(--radius);
+      border:none;cursor:pointer;font-family:var(--display);font-weight:600;font-size:.9rem;
+      display:flex;align-items:center;gap:8px;transition:all .2s}
+    .btn-next:disabled{opacity:.5;cursor:not-allowed}
+    .intake-success{display:none;text-align:center;padding:2rem 0;animation:fadeInUp .4s ease}
+    .success-icon{width:64px;height:64px;border-radius:50%;background:rgba(16,185,129,.1);
+      border:1px solid rgba(16,185,129,.3);display:flex;align-items:center;justify-content:center;
+      margin:0 auto 1.5rem;font-size:1.75rem}
+    .footer{background:var(--bg-2);border-top:1px solid var(--border);padding:4rem 0 2rem}
+    .footer-top{display:flex;justify-content:space-between;gap:3rem;margin-bottom:3rem}
+    .footer-brand p{color:var(--text-muted);font-size:.9rem;margin-top:.75rem;max-width:320px}
+    .footer-links{display:flex;gap:4rem}
+    .footer-col h4{font-size:.85rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin-bottom:1rem;font-family:var(--mono)}
+    .footer-col a{display:block;color:var(--text-muted);font-size:.9rem;margin-bottom:.5rem}
+    .footer-bottom{border-top:1px solid var(--border);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;
+      font-family:var(--mono);font-size:.65rem;letter-spacing:.08em;color:var(--surface-3);flex-wrap:wrap;gap:1rem}
+
+    @media(max-width:900px){
+      .services-grid,.pricing-grid{grid-template-columns:1fr}
+      .portfolio-grid{grid-template-columns:repeat(2,1fr)}
+      .stats-grid{grid-template-columns:repeat(2,1fr)}
+      .stat{border-right:none;border-bottom:1px solid var(--border)}
+      .problem-grid{grid-template-columns:1fr}
+      .method-steps{grid-template-columns:repeat(2,1fr)}
+      .footer-top{flex-direction:column}
+      .nav__links{display:none}
+      .nav__links.open{display:flex;flex-direction:column;position:fixed;inset:var(--nav-h) 0 0 0;
+        background:rgba(2,6,23,.97);justify-content:center;align-items:center;gap:2rem;z-index:49;padding:2rem}
+      .nav__burger{display:block}
+    }
+    @media(max-width:600px){
+      .portfolio-grid{grid-template-columns:1fr}
+      .radio-grid{grid-template-columns:1fr}
+      .form-2col{grid-template-columns:1fr}
+      .intake-wrap{padding:1.75rem}
+    }
+  </style>
+</head>
+<body>
+<div class="ambient" aria-hidden="true"></div>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="shell">
+    <a href="#hero" class="nav__logo">
+      <img src="../logo-dark.png" alt="4HOME" />
+      <span class="nav__badge">AGENCY · EN</span>
+    </a>
+    <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav__links" id="navlinks">
+      <a href="#problem">The Problem</a>
+      <a href="#services">Services</a>
+      <a href="#pricing">Investment</a>
+      <a href="#portfolio">Case Studies</a>
+      <a href="../" style="font-family:var(--mono);font-size:.75rem;color:var(--accent);border:1px solid rgba(245,158,11,.3);padding:2px 8px;border-radius:4px">ES</a>
+      <a href="#solicitar" class="nav__cta">Request Proposal</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-content">
+    <div class="hero-kicker">
+      <span class="dot" aria-hidden="true"></span>
+      High-End Digital Systems · Video & Acquisition
+    </div>
+    <h1>Your company deserves a digital presence<br>that <em>justifies your premium rates</em></h1>
+    <p class="hero-sub">We build the websites that convert high-ticket clients and produce cinematic video content that fills your schedule — with sub-second loading speeds and measurable results.</p>
+    <div class="hero-badges">
+      <span class="badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> Instant Mobile Load (&lt;0.8s)</span>
+      <span class="badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> Full Bilingual Scale (EN/ES)</span>
+      <span class="badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Turnkey & Fully Managed</span>
+      <span class="badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg> 100/100 Google Certified</span>
+    </div>
+    <div class="hero-ctas">
+      <a href="#solicitar" class="btn btn-primary">Request Proposal →</a>
+      <a href="#portfolio" class="btn btn-ghost">View Case Studies</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="shell">
+    <div class="stats-grid">
+      <div class="stat"><span class="stat-num" data-target="98">0</span><span class="stat-label">Google Speed Score</span></div>
+      <div class="stat"><span class="stat-num" data-target="0.8" data-suffix="s">0s</span><span class="stat-label">Mobile Load Time</span></div>
+      <div class="stat"><span class="stat-num" data-target="100" data-suffix="%">0%</span><span class="stat-label">On-Time Delivery</span></div>
+      <div class="stat"><span class="stat-num" data-target="24" data-suffix="h">0h</span><span class="stat-label">Guaranteed Support</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section class="section problem" id="problem">
+  <div class="shell">
+    <div class="section-header">
+      <span class="kicker">The Real Bottleneck</span>
+      <h2>You provide top-tier craft.<br>Your digital presence doesn't show it.</h2>
+      <p>And that costs you lucrative contracts to competitors charging more simply because they look the part.</p>
+    </div>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="problem-icon-wrap">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3>Slow websites that leak high-ticket leads</h3>
+        <p>Affluent homeowners decide in under 3 seconds. If your site lags, they leave and call your competitor before finding your phone number.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon-wrap">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+        </div>
+        <h3>Sporadic posting with zero commercial strategy</h3>
+        <p>Publishing without a system or cinematic polish hurts your brand. Without consistency, potential clients forget your business exists.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon-wrap">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <h3>Lost contracts from international & foreign buyers</h3>
+        <p>Expatriates and international investors look for English-first services. Without native bilingual assets, they move on immediately.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon-wrap">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+        </div>
+        <h3>Unqualified inquiries that waste your estimating time</h3>
+        <p>Tired of fielding inquiries from price-shoppers? Our intelligent intake qualifies budget before you ever pick up the phone.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="section portfolio" id="portfolio">
+  <div class="shell">
+    <div class="section-header">
+      <span class="kicker">Case Studies & Deliverables</span>
+      <h2>What we build for your brand<br>and the tangible outcome you get</h2>
+      <p>Custom-engineered digital assets built to establish immediate authority and convert high-ticket inquiries automatically.</p>
+    </div>
+    <div class="portfolio-grid">
+      <div class="portfolio-card">
+        <div class="portfolio-media">
+          <img src="../assets/portfolio-landing.jpg" alt="Direct Acquisition Landing Page" loading="lazy" />
+          <div class="portfolio-overlay">
+            <span class="portfolio-badge">Commercial Web</span>
+            <span class="portfolio-live-hint">Load &lt; 0.8s</span>
+          </div>
+        </div>
+        <div class="portfolio-meta">
+          <span class="portfolio-tag">Commercial Web · Signature Tier</span>
+          <h3>Direct Acquisition Landing Page</h3>
+          <p>Instant mobile rendering designed to drive immediate quote requests directly into your WhatsApp and CRM.</p>
+        </div>
+      </div>
+      <div class="portfolio-card">
+        <div class="portfolio-media">
+          <img src="../assets/portfolio-dashboard.jpg" alt="Client Portal & Live Milestones" loading="lazy" />
+          <div class="portfolio-overlay">
+            <span class="portfolio-badge">Private Portal</span>
+            <span class="portfolio-live-hint">24/7 Dashboard</span>
+          </div>
+        </div>
+        <div class="portfolio-meta">
+          <span class="portfolio-tag">Enterprise Solution · Client Portal</span>
+          <h3>Client Portal & Live Milestones</h3>
+          <p>Your clients track construction progress, milestones, and invoices online — eliminating repetitive status calls.</p>
+        </div>
+      </div>
+      <div class="portfolio-card">
+        <div class="portfolio-media">
+          <img src="../assets/portfolio-reels.jpg" alt="High-Impact Video & Reels" loading="lazy" />
+          <div class="portfolio-overlay">
+            <span class="portfolio-badge">Video Production</span>
+            <span class="portfolio-live-hint">9:16 Format</span>
+          </div>
+        </div>
+        <div class="portfolio-meta">
+          <span class="portfolio-tag">Cinematic Video · Authority</span>
+          <h3>High-Impact Video & Reels</h3>
+          <p>8 to 12 monthly produced videos ready to publish with professional narration, dynamic captions, and 4K color grading.</p>
+        </div>
+      </div>
+      <div class="portfolio-card">
+        <div class="portfolio-media">
+          <img src="../assets/portfolio-bilingual.jpg" alt="Bilingual Scale (EN/ES)" loading="lazy" />
+          <div class="portfolio-overlay">
+            <span class="portfolio-badge">Bilingual EN / ES</span>
+            <span class="portfolio-live-hint">Google 100/100</span>
+          </div>
+        </div>
+        <div class="portfolio-meta">
+          <span class="portfolio-tag">International Reach · Multi-Region</span>
+          <h3>Bilingual Scale (English & Spanish)</h3>
+          <p>Complete web and catalog assets localized with cultural accuracy to close affluent foreign homeowners seamlessly.</p>
+        </div>
+      </div>
+      <div class="portfolio-card">
+        <div class="portfolio-media">
+          <img src="../assets/portfolio-wizard.jpg" alt="Interactive Diagnostic Wizard" loading="lazy" />
+          <div class="portfolio-overlay">
+            <span class="portfolio-badge">Lead Qualification</span>
+            <span class="portfolio-live-hint">4-Step Wizard</span>
+          </div>
+        </div>
+        <div class="portfolio-meta">
+          <span class="portfolio-tag">Lead Filter · Guided Assistant</span>
+          <h3>Interactive Diagnostic Wizard</h3>
+          <p>A frictionless 30-second assessment that qualifies project scope and budget range before you jump on a sales call.</p>
+        </div>
+      </div>
+      <div class="portfolio-card">
+        <div class="portfolio-media">
+          <img src="../assets/portfolio-dossier.jpg" alt="Instant Automated Proposal Dossier" loading="lazy" />
+          <div class="portfolio-overlay">
+            <span class="portfolio-badge">Automation</span>
+            <span class="portfolio-live-hint">Instant Delivery</span>
+          </div>
+        </div>
+        <div class="portfolio-meta">
+          <span class="portfolio-tag">Instant Response · Automation</span>
+          <h3>Instant Automated Proposal Dossier</h3>
+          <p>Prospects receive your branded digital proposal package within seconds of submitting, booking a call on your calendar.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section services" id="services">
+  <div class="shell">
+    <div class="section-header">
+      <span class="kicker">Core Capabilities</span>
+      <h2>Everything needed to dominate<br>and win higher-margin projects</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-letter">Web Systems · Commercial Presence</span>
+        <h3>High-Performance Web Infrastructure</h3>
+        <p>Engineered strictly to capture qualified leads. Delivered turnkey, tested across all devices, and fully managed.</p>
+        <ul class="service-items">
+          <li>100/100 Google Speed & Core Web Vitals</li>
+          <li>Instant WhatsApp & CRM notifications</li>
+          <li>24/7 uptime monitoring & automated daily backups</li>
+          <li>Direct technical support & monthly enhancements included</li>
+        </ul>
+        <div class="service-price">
+          <div class="price-setup"><span class="price-from">from</span>€ 2,450</div>
+          <div class="price-monthly">Setup fee + <strong>from €190/mo</strong> maintenance & care</div>
+        </div>
+        <a class="service-cta-link" href="#solicitar" data-plan="web-signature">Select Plan →</a>
+      </div>
+      <div class="service-card">
+        <span class="service-letter">Video Production · Content Engine</span>
+        <h3>Systematic Video & Social Production</h3>
+        <p>Short-form video assets showing your craft with commercial broadcast quality. We script, produce, and edit everything.</p>
+        <ul class="service-items">
+          <li>8 to 20 cinematic videos per month</li>
+          <li>Studio voiceover narration & dynamic kinetic subtitles</li>
+          <li>Authentic project showcases that build trust and authority</li>
+          <li>Formatted for Instagram, TikTok, YouTube Shorts & Meta Ads</li>
+        </ul>
+        <div class="service-price">
+          <div class="price-setup"><span class="price-from">from</span>€ 1,200</div>
+          <div class="price-monthly">Brand setup + <strong>from €690/mo</strong> monthly production</div>
+        </div>
+        <a class="service-cta-link" href="#solicitar" data-plan="contenido-autoridad">Select Plan →</a>
+      </div>
+      <div class="service-card">
+        <span class="service-letter">Global Expansion · Bilingual Scale</span>
+        <h3>Bilingual English & Spanish Acquisition</h3>
+        <p>Expand your operations to capture international clients seeking premium English-speaking contractors.</p>
+        <ul class="service-items">
+          <li>Complete symmetrical presence in EN + ES</li>
+          <li>Culturally localized sales copy & pricing catalogs</li>
+          <li>Unified multi-region lead dispatch & alerts</li>
+          <li>Ongoing international technical support</li>
+        </ul>
+        <div class="service-price">
+          <div class="price-setup">€ 5,900</div>
+          <div class="price-monthly">Turnkey setup + <strong>€950/mo</strong> full management</div>
+        </div>
+        <a class="service-cta-link" href="#solicitar" data-plan="expansion-global">Select Plan →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METHOD -->
+<section class="section method" id="method">
+  <div class="shell">
+    <div class="section-header">
+      <span class="kicker">How We Work Together</span>
+      <h2>From initial brief to an automated<br>system that works for you</h2>
+    </div>
+    <div class="method-steps">
+      <div class="method-step"><div class="method-num">01</div><h3>Diagnostic Brief</h3><p>We analyze your business, target projects, and ideal margin targets.</p></div>
+      <div class="method-step"><div class="method-num">02</div><h3>Transparent Proposal</h3><p>You receive exact timelines and fixed pricing. Approved before work begins.</p></div>
+      <div class="method-step"><div class="method-num">03</div><h3>Build & Delivery</h3><p>We construct, test, and launch your digital infrastructure on schedule.</p></div>
+      <div class="method-step"><div class="method-num">04</div><h3>Proactive Maintenance</h3><p>Continuous monitoring, updates, and fast response times under 24 hours.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section pricing" id="pricing">
+  <div class="shell">
+    <div class="section-header">
+      <span class="kicker">Investment Structure</span>
+      <h2>Clear pricing from day one</h2>
+      <p>One-time setup fee + monthly care tier so you never have to worry about technical upkeep.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="pricing-head">
+          <span class="pricing-eje">For Strong Market Entry</span>
+          <h3>Signature Web</h3>
+          <div class="pricing-setup"><span class="pricing-amount">€ 2,450</span></div>
+          <span style="font-size:.75rem;color:var(--text-muted)">one-time setup</span>
+          <div style="font-family:var(--mono);font-size:.65rem;color:var(--accent-soft);margin-top:.75rem">+ €190 / month maintenance</div>
+        </div>
+        <div class="pricing-body">
+          <ul class="pricing-items">
+            <li><span class="chk">✓</span> Instant mobile-speed landing page (&lt;0.8s)</li>
+            <li><span class="chk">✓</span> High-conversion copywriting tailored to your trade</li>
+            <li><span class="chk">✓</span> Direct WhatsApp & email dispatch</li>
+            <li><span class="chk">✓</span> 24/7 uptime & automated daily cloud backups</li>
+            <li><span class="chk">✓</span> Monthly content and design adjustments included</li>
+          </ul>
+          <a href="#solicitar" class="pricing-btn" data-plan="web-signature">Request Proposal</a>
+        </div>
+      </div>
+      <div class="pricing-card featured">
+        <div class="pricing-head">
+          <span class="pricing-eje">Most Complete for Scaling</span>
+          <h3>Enterprise Ecosystem</h3>
+          <div class="pricing-setup"><span class="pricing-amount">€ 4,800</span></div>
+          <span style="font-size:.75rem;color:var(--text-muted)">one-time setup</span>
+          <div style="font-family:var(--mono);font-size:.65rem;color:var(--accent-soft);margin-top:.75rem">+ €390 / month advanced care</div>
+        </div>
+        <div class="pricing-body">
+          <ul class="pricing-items">
+            <li><span class="chk">✓</span> Full corporate multi-page web (up to 10 pages)</li>
+            <li><span class="chk">✓</span> Interactive cost calculator for instant estimations</li>
+            <li><span class="chk">✓</span> Private client milestone & invoice dashboard</li>
+            <li><span class="chk">✓</span> Monthly SEO audits & speed optimization</li>
+            <li><span class="chk">✓</span> Priority response & up to 8h monthly evolution</li>
+          </ul>
+          <a href="#solicitar" class="pricing-btn" data-plan="enterprise-ecosystem">Request Proposal</a>
+        </div>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-head">
+          <span class="pricing-eje">International & Multi-Market</span>
+          <h3>Bilingual Scale</h3>
+          <div class="pricing-setup"><span class="pricing-amount">€ 5,900</span></div>
+          <span style="font-size:.75rem;color:var(--text-muted)">turnkey setup</span>
+          <div style="font-family:var(--mono);font-size:.65rem;color:var(--accent-soft);margin-top:.75rem">+ €950 / month full management</div>
+        </div>
+        <div class="pricing-body">
+          <ul class="pricing-items">
+            <li><span class="chk">✓</span> Full dual-language web & content suite (EN + ES)</li>
+            <li><span class="chk">✓</span> Catalogs and messaging tailored to foreign buyers</li>
+            <li><span class="chk">✓</span> Multi-region lead qualification and routing</li>
+            <li><span class="chk">✓</span> Dedicated bilingual technical support</li>
+          </ul>
+          <a href="#solicitar" class="pricing-btn" data-plan="expansion-global">Request Proposal</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTAKE WIZARD -->
+<section class="section intake" id="solicitar">
+  <div class="shell">
+    <div class="section-header">
+      <span class="kicker">Request a Proposal</span>
+      <h2>Tell us about your project</h2>
+      <p>4 quick questions. We review your request in under 24 business hours.</p>
+    </div>
+    <div class="intake-wrap" id="intakeForm">
+      <div class="wizard-progress" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="4">
+        <div class="wp-step active" id="wp1"></div>
+        <div class="wp-step" id="wp2"></div>
+        <div class="wp-step" id="wp3"></div>
+        <div class="wp-step" id="wp4"></div>
+      </div>
+      <!-- Step 1 -->
+      <div class="wizard-step active" id="step1">
+        <span class="step-count">Step 1 of 4</span>
+        <h3>What digital solutions do you need?</h3>
+        <p class="step-sub">Select the core solution that matches your current goal.</p>
+        <div class="radio-grid">
+          <label class="radio-option"><input type="radio" name="proyecto" value="web-basica" /><span class="radio-dot"></span>Commercial Web & Lead Gen</label>
+          <label class="radio-option"><input type="radio" name="proyecto" value="web-enterprise" /><span class="radio-dot"></span>Full Enterprise Web Ecosystem</label>
+          <label class="radio-option"><input type="radio" name="proyecto" value="contenido" /><span class="radio-dot"></span>Cinematic Video & Reels Engine</label>
+          <label class="radio-option"><input type="radio" name="proyecto" value="bilingue" /><span class="radio-dot"></span>Bilingual Expansion (EN / ES)</label>
+        </div>
+        <div class="wizard-nav"><span></span><button class="btn-next" id="next1" onclick="goStep(2)" disabled>Continue →</button></div>
+      </div>
+      <!-- Step 2 -->
+      <div class="wizard-step" id="step2">
+        <span class="step-count">Step 2 of 4</span>
+        <h3>Estimated initial investment range?</h3>
+        <p class="step-sub">Helps us tailor the most suitable architecture from the start.</p>
+        <div class="radio-grid">
+          <label class="radio-option"><input type="radio" name="presupuesto" value="1200-2500" /><span class="radio-dot"></span>€ 1,200 – 2,500</label>
+          <label class="radio-option"><input type="radio" name="presupuesto" value="2500-5000" /><span class="radio-dot"></span>€ 2,500 – 5,000</label>
+          <label class="radio-option"><input type="radio" name="presupuesto" value="5000-8000" /><span class="radio-dot"></span>€ 5,000 – 8,000</label>
+          <label class="radio-option"><input type="radio" name="presupuesto" value="8000+" /><span class="radio-dot"></span>€ 8,000 +</label>
+        </div>
+        <div class="wizard-nav"><button class="btn-back" onclick="goStep(1)">← Back</button><button class="btn-next" id="next2" onclick="goStep(3)" disabled>Continue →</button></div>
+      </div>
+      <!-- Step 3 -->
+      <div class="wizard-step" id="step3">
+        <span class="step-count">Step 3 of 4</span>
+        <h3>Contact details</h3>
+        <p class="step-sub">To deliver your custom proposal and schedule your diagnostic call.</p>
+        <div class="form-2col">
+          <div class="form-field"><label for="f-nombre">Full Name *</label><input type="text" id="f-nombre" placeholder="Your name" required autocomplete="name" /></div>
+          <div class="form-field"><label for="f-empresa">Company / Trade Name</label><input type="text" id="f-empresa" placeholder="Your company" autocomplete="organization" /></div>
+        </div>
+        <div class="form-2col">
+          <div class="form-field"><label for="f-email">Work Email *</label><input type="email" id="f-email" placeholder="you@company.com" required autocomplete="email" /></div>
+          <div class="form-field"><label for="f-wa">WhatsApp / Phone</label><input type="tel" id="f-wa" placeholder="+1 (555) 000-0000" autocomplete="tel" /></div>
+        </div>
+        <div class="wizard-nav"><button class="btn-back" onclick="goStep(2)">← Back</button><button class="btn-next" id="next3" onclick="goStep(4)">Continue →</button></div>
+      </div>
+      <!-- Step 4 -->
+      <div class="wizard-step" id="step4">
+        <span class="step-count">Step 4 of 4</span>
+        <h3>Additional project details</h3>
+        <p class="step-sub">Optional — share context on your current website or goals.</p>
+        <div class="form-field"><label for="f-notas">Notes / Requirements</label><textarea id="f-notas" placeholder="e.g., We currently have an outdated site that loads slowly. We need a modern client portal and calculator..."></textarea></div>
+        <div class="form-field" style="margin-top:.5rem">
+          <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-size:.85rem;color:var(--text-muted);">
+            <input type="checkbox" id="f-privacidad" required style="width:auto;margin-top:3px;accent-color:var(--accent);" />
+            I agree to 4HOME Agency processing my details according to the <a href="../privacidad.html" target="_blank">Privacy Policy</a>.
+          </label>
+        </div>
+        <div class="wizard-nav"><button class="btn-back" onclick="goStep(3)">← Back</button><button class="btn-next" id="btnSubmit" onclick="submitForm()">Submit Proposal Request →</button></div>
+      </div>
+      <!-- Success -->
+      <div class="intake-success" id="intakeSuccess">
+        <div class="success-icon">✓</div>
+        <h3>Proposal Request Received!</h3>
+        <p>We are reviewing your details and will deliver a custom proposal to <strong id="successEmail"></strong> in under 24 business hours.<br><br>Please check your inbox.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="shell">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="../logo-dark.png" alt="4HOME" />
+        <p>Digital systems and cinematic video production for home service contractors.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="#services">Web Systems</a>
+          <a href="#services">Video Production</a>
+          <a href="#services">Bilingual Scale</a>
+        </div>
+        <div class="footer-col">
+          <h4>Ecosystem</h4>
+          <a href="https://4homehq.com" target="_blank" rel="noopener">Main Portal</a>
+          <a href="https://app.4homehq.com" target="_blank" rel="noopener">SaaS Platform</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="../privacidad.html">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 4HOME · All rights reserved</span>
+      <span>agency.4homehq.com/en/</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const AGENCY_CONFIG = {
+  endpoint: 'https://app.4homehq.com/api/agency-leads',
+  angle: 'A400', slug: 'agency-intake-en', source: 'agency_4homehq', lang: 'en'
+};
+
+const burger = document.getElementById('burger');
+const navlinks = document.getElementById('navlinks');
+burger.addEventListener('click', () => {
+  const open = navlinks.classList.toggle('open');
+  burger.setAttribute('aria-expanded', open);
+});
+navlinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  navlinks.classList.remove('open'); burger.setAttribute('aria-expanded', false);
+}));
+
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').style.background = window.scrollY > 60 ? 'rgba(2,6,23,.97)' : 'rgba(2,6,23,.85)';
+}, { passive: true });
+
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return; obs.unobserve(e.target);
+    const el = e.target, target = parseFloat(el.dataset.target), suffix = el.dataset.suffix || '';
+    const isFloat = target < 10; let start = 0;
+    const step = ts => {
+      if (!start) start = ts;
+      const prog = Math.min((ts - start) / 1400, 1);
+      el.textContent = (isFloat ? (target * prog).toFixed(1) : Math.round(target * prog)) + suffix;
+      if (prog < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.stat-num[data-target]').forEach(c => obs.observe(c));
+
+document.querySelectorAll('[data-plan]').forEach(btn => {
+  btn.addEventListener('click', e => {
+    e.preventDefault();
+    const map = {'web-signature':'web-basica','enterprise-ecosystem':'web-enterprise','contenido-autoridad':'contenido','expansion-global':'bilingue'};
+    const val = map[btn.dataset.plan];
+    if (val) {
+      const r = document.querySelector(`input[name="proyecto"][value="${val}"]`);
+      if (r) {
+        r.checked = true;
+        updateRadioVisuals('proyecto');
+        document.getElementById('next1').disabled = false;
+      }
+    }
+    document.getElementById('solicitar').scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
+let cur = 1;
+function updateRadioVisuals(name) {
+  document.querySelectorAll(`input[name="${name}"]`).forEach(input => {
+    const parent = input.closest('.radio-option');
+    if (parent) {
+      if (input.checked) {
+        parent.classList.add('selected');
+      } else {
+        parent.classList.remove('selected');
+      }
+    }
+  });
+}
+
+function goStep(n) {
+  document.getElementById('step' + cur).classList.remove('active');
+  const wpPrev = document.getElementById('wp' + cur);
+  wpPrev.classList.remove('active'); wpPrev.classList.add('done');
+  cur = n;
+  document.getElementById('step' + cur).classList.add('active');
+  for (let i = cur; i <= 4; i++) { const wp = document.getElementById('wp' + i); if (wp) { wp.classList.remove('done','active'); } }
+  document.getElementById('wp' + cur).classList.add('active');
+  document.querySelector('.wizard-progress').setAttribute('aria-valuenow', cur);
+  if (cur === 1) checkR('proyecto','next1');
+  if (cur === 2) checkR('presupuesto','next2');
+}
+function checkR(name, btnId) {
+  updateRadioVisuals(name);
+  const btn = document.getElementById(btnId);
+  if (btn) btn.disabled = !document.querySelector(`input[name="${name}"]:checked`);
+}
+document.querySelectorAll('input[name="proyecto"]').forEach(r => r.addEventListener('change', () => checkR('proyecto','next1')));
+document.querySelectorAll('input[name="presupuesto"]').forEach(r => r.addEventListener('change', () => checkR('presupuesto','next2')));
+['f-nombre','f-email'].forEach(id => document.getElementById(id)?.addEventListener('input', v3));
+function v3() {
+  const n = document.getElementById('f-nombre').value.trim();
+  const e = document.getElementById('f-email').value.trim();
+  document.getElementById('next3').disabled = !(n.length > 1 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e));
+}
+v3();
+
+async function submitForm() {
+  const priv = document.getElementById('f-privacidad');
+  if (!priv.checked) { priv.focus(); return; }
+  const btn = document.getElementById('btnSubmit');
+  btn.disabled = true; btn.textContent = 'Submitting…';
+  const email = document.getElementById('f-email').value.trim();
+  const payload = {
+    name: document.getElementById('f-nombre').value.trim(), email,
+    trade: 'home-services', angle: AGENCY_CONFIG.angle, slug: AGENCY_CONFIG.slug,
+    source: AGENCY_CONFIG.source, url: location.href, lang: AGENCY_CONFIG.lang,
+    metadata: {
+      plan_interest: document.querySelector('input[name="proyecto"]:checked')?.value || '',
+      budget_range: document.querySelector('input[name="presupuesto"]:checked')?.value || '',
+      company: document.getElementById('f-empresa').value.trim(),
+      whatsapp: document.getElementById('f-wa').value.trim(),
+      notes: document.getElementById('f-notas').value.trim()
+    }
+  };
+  try { await fetch(AGENCY_CONFIG.endpoint, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) }); } catch(_) {}
+  document.getElementById('successEmail').textContent = email;
+  document.querySelector('.wizard-progress').style.display = 'none';
+  document.getElementById('step4').style.display = 'none';
+  document.getElementById('intakeSuccess').style.display = 'block';
+  document.getElementById('intakeForm').scrollIntoView({ behavior:'smooth', block:'center' });
+}
+</script>
+</body>
+</html>

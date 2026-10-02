@@ -1,6 +1,4 @@
 {
-  "version": 2,
-  "name": "4home-agency",
   "cleanUrls": true,
   "trailingSlash": false,
   "headers": [

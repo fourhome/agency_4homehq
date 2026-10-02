@@ -913,17 +913,17 @@ async function submitForm() {
   const btn = document.getElementById('btnSubmit');
   btn.disabled = true; btn.textContent = 'Enviando…';
   const email = document.getElementById('f-email').value.trim();
+  // Contrato del portal: campos planos (sin wrapper metadata), igual que squeeze pages
   const payload = {
     name: document.getElementById('f-nombre').value.trim(), email,
     trade: 'home-services', angle: AGENCY_CONFIG.angle, slug: AGENCY_CONFIG.slug,
     source: AGENCY_CONFIG.source, url: location.href, lang: AGENCY_CONFIG.lang,
-    metadata: {
-      plan_interest: document.querySelector('input[name="proyecto"]:checked')?.value || '',
-      budget_range: document.querySelector('input[name="presupuesto"]:checked')?.value || '',
-      company: document.getElementById('f-empresa').value.trim(),
-      whatsapp: document.getElementById('f-wa').value.trim(),
-      notes: document.getElementById('f-notas').value.trim()
-    }
+    // Campos de contexto de agencia (se guardan en columna payload JSONB)
+    plan_interest: document.querySelector('input[name="proyecto"]:checked')?.value || '',
+    budget_range: document.querySelector('input[name="presupuesto"]:checked')?.value || '',
+    company: document.getElementById('f-empresa').value.trim(),
+    whatsapp: document.getElementById('f-wa').value.trim(),
+    notes: document.getElementById('f-notas').value.trim()
   };
   try { await fetch(AGENCY_CONFIG.endpoint, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) }); } catch(_) {}
   document.getElementById('successEmail').textContent = email;

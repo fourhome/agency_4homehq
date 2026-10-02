@@ -23,11 +23,23 @@ Este paquete contiene todo lo necesario para publicar la página de **4HOME Agen
    ```
 2. Ejecuta el comando de despliegue a producción:
    ```bash
-   npx vercel --prod
+   npx vercel --prod --yes
    ```
-3. En el panel de control de Vercel del proyecto creado:
-   - Ve a **Settings** > **Domains**.
-   - Añade el dominio: `agency.4homehq.com`.
+3. Si el dominio `agency.4homehq.com` no se actualiza automáticamente al nuevo despliegue, asigna el alias explícitamente:
+   ```bash
+   npx vercel alias set <URL-DEL-DESPLIEGUE> agency.4homehq.com
+   ```
+
+---
+
+## ⚠️ Lecciones Aprendidas y Prevención de Errores 404
+
+1. **Esquema de `vercel.json` para sitios HTML estáticos:**
+   - **Nunca** incluyas `"version": 2` ni `"name"` en `vercel.json`. En Vercel moderno, `"version": 2` sin bloque `"builds"` fuerza el modo serverless e ignora los archivos HTML estáticos, provocando `404 NOT_FOUND` en todo el sitio.
+   - El archivo `vercel.json` debe contener únicamente `cleanUrls`, `trailingSlash` y los bloques `headers`/`redirects`.
+
+2. **Sincronización del Alias de Dominio:**
+   - Si tras desplegar una versión nueva el dominio sigue mostrando un estado anterior o 404, ejecuta `npx vercel alias ls` para comprobar a qué despliegue apunta `agency.4homehq.com`, y reasígnalo con `npx vercel alias set <deployment-url> agency.4homehq.com`.
 
 ---
 

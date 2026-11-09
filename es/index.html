@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>4HOME Agency — Presencia Digital B2B de Alto Rendimiento</title>
   <meta name="description" content="Construimos la presencia digital de empresas que lideran su sector. Desarrollo web de carga instantánea, contenido audiovisual sistemático y expansión bilingüe." />
+  <meta name='impact-site-verification' value='d6a4c295-a8fb-47f3-8443-96c5f7861e87'>
+  <meta name="impact-site-verification" content="d6a4c295-a8fb-47f3-8443-96c5f7861e87">
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -231,6 +233,32 @@
     .pricing-card.featured .pricing-btn:hover{background:var(--accent-soft)}
     .pricing-disclaimer{text-align:center;margin-top:2rem;color:var(--text-muted);
       font-family:var(--mono);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase}
+
+    /* ── PUENTE DE HERRAMIENTAS GRATUITAS ── */
+    .fast-quotes-bridge{padding:4rem 0;background:linear-gradient(180deg,var(--bg) 0%,rgba(15,23,42,0.85) 100%)}
+    .fq-card{background:linear-gradient(135deg,rgba(30,41,59,0.9) 0%,rgba(15,23,42,0.98) 100%);
+      border:1.5px solid rgba(245,158,11,0.35);border-radius:var(--radius-lg);padding:3rem 3.5rem;
+      position:relative;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,0.45),0 0 40px rgba(245,158,11,0.08)}
+    .fq-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;
+      background:linear-gradient(90deg,var(--accent),#FBBF24,var(--primary))}
+    .fq-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(245,158,11,0.12);
+      border:1px solid rgba(245,158,11,0.3);color:var(--accent);font-family:var(--mono);font-size:.7rem;
+      font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:6px 14px;border-radius:100px;margin-bottom:1.5rem}
+    .fq-grid{display:grid;grid-template-columns:1.25fr 0.75fr;gap:3rem;align-items:center}
+    .fq-text h2{font-size:clamp(1.6rem,2.8vw,2.2rem);line-height:1.2;margin-bottom:1rem;color:#FFF}
+    .fq-text h2 span{background:linear-gradient(135deg,#F59E0B,#FBBF24);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+    .fq-text p{color:var(--text-muted);font-size:1rem;line-height:1.65;margin-bottom:1.75rem;max-width:580px}
+    .fq-features{display:flex;flex-wrap:wrap;gap:1rem 1.5rem;margin-bottom:.5rem}
+    .fq-feat{display:inline-flex;align-items:center;gap:8px;font-size:.85rem;color:var(--text);font-weight:500}
+    .fq-feat svg{color:#10B981;flex-shrink:0}
+    .fq-action{display:flex;flex-direction:column;align-items:center;justify-content:center;
+      background:rgba(15,23,42,0.7);border:1px solid var(--border);border-radius:var(--radius);padding:2.25rem 2rem;text-align:center}
+    .btn-fq{width:100%;background:linear-gradient(135deg,#F59E0B,#D97706);color:#020617;font-weight:700;
+      font-size:1rem;padding:15px 24px;border-radius:var(--radius);display:inline-flex;align-items:center;
+      justify-content:center;gap:10px;text-decoration:none;box-shadow:0 8px 24px rgba(245,158,11,0.3);
+      transition:all .2s ease}
+    .btn-fq:hover{background:linear-gradient(135deg,#FBBF24,#F59E0B);transform:translateY(-2px);box-shadow:0 12px 30px rgba(245,158,11,0.45);color:#000}
+    .fq-hint{font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;color:var(--text-muted);margin-top:1rem;display:block}
 
     /* ── FORMULARIO WIZARD ── */
     .intake{background:var(--bg)}
@@ -554,52 +582,85 @@
     </div>
     <div class="services-grid">
       <div class="service-card">
-        <span class="service-letter">Servicio Web · Presencia Comercial</span>
-        <h3>Página Web de Alto Rendimiento</h3>
-        <p>Creamos tu web comercial pensada exclusivamente para generar contactos calificados. Te la entregamos lista, probada y con todo el mantenimiento técnico incluido.</p>
-        <ul class="service-items">
-          <li>Aprobada con puntuación máxima en Google para posicionar arriba</li>
-          <li>Avisos automáticos a tu WhatsApp y correo al recibir una solicitud</li>
-          <li>Copias de seguridad diarias y protección constante contra caídas</li>
-          <li>Soporte técnico directo para hacer los cambios que necesites</li>
-        </ul>
-        <div class="service-price">
-          <div class="price-setup"><span class="price-from">desde</span>€ 2.450</div>
-          <div class="price-monthly">Puesta en marcha + <strong>desde €190/mes</strong> de soporte y cuidado total</div>
-        </div>
-        <a class="service-cta-link" href="#solicitar" data-plan="web-signature">Ver planes →</a>
-      </div>
-      <div class="service-card">
         <span class="service-letter">Servicio Audiovisual · Redes y Vídeo</span>
-        <h3>Producción Continua de Contenido</h3>
-        <p>Vídeos cortos y publicaciones que muestran tus proyectos con calidad de anuncio de televisión. Nosotros redactamos los guiones, editamos y producimos todo.</p>
+        <h3>Producción Continua de Contenido Viral</h3>
+        <p>Vídeos cortos y publicaciones que muestran tus proyectos con gancho de retención y calidad de televisión. Redactamos los guiones, creamos la música y producimos todo.</p>
         <ul class="service-items">
-          <li>8 a 20 vídeos profesionales al mes para tus redes</li>
-          <li>Voz de locutor profesional y subtítulos llamativos</li>
-          <li>Casos y explicaciones reales de tus trabajos que generan confianza</li>
-          <li>Formatos listos para publicar en Instagram, TikTok y publicidad pagada</li>
+          <li>12 vídeos profesionales al mes en formato vertical 9:16</li>
+          <li>Música original y diseño sonoro exclusivo para tu marca</li>
+          <li>15 publicaciones de autoridad al mes para LinkedIn e Instagram</li>
+          <li>Voz de locutor profesional de estudio y subtítulos dinámicos</li>
         </ul>
         <div class="service-price">
           <div class="price-setup"><span class="price-from">desde</span>€ 1.200</div>
-          <div class="price-monthly">Diseño de identidad + <strong>desde €690/mes</strong> de producción mensual</div>
+          <div class="price-monthly">Puesta en marcha + <strong>desde €890/mes</strong> de producción continua</div>
         </div>
-        <a class="service-cta-link" href="#solicitar" data-plan="contenido-autoridad">Ver planes →</a>
+        <a class="service-cta-link" href="#solicitar" data-plan="viral-engine">Ver planes →</a>
+      </div>
+      <div class="service-card">
+        <span class="service-letter">Servicio Web · Presencia Comercial</span>
+        <h3>Ecosistema de Autoridad y Video</h3>
+        <p>La máquina completa: producimos tus videos mensuales y construimos tu página web comercial con calculadora interactiva pensada para cerrar contratos.</p>
+        <ul class="service-items">
+          <li>12 videos virales + música propia + 15 publicaciones B2B al mes</li>
+          <li>Apertura en menos de un segundo en móvil con calculadora de precios</li>
+          <li>Avisos automáticos a tu WhatsApp y CRM al recibir una solicitud</li>
+          <li>Optimización mensual en Google para captar clientes en tu zona</li>
+        </ul>
+        <div class="service-price">
+          <div class="price-setup"><span class="price-from">desde</span>€ 2.850</div>
+          <div class="price-monthly">Puesta en marcha + <strong>desde €1.190/mes</strong> de gestión completa</div>
+        </div>
+        <a class="service-cta-link" href="#solicitar" data-plan="authority-ecosystem">Ver planes →</a>
       </div>
       <div class="service-card">
         <span class="service-letter">Expansión de Mercado · Internacional</span>
         <h3>Captación en Español e Inglés</h3>
-        <p>Adaptamos toda tu presencia digital para atraer y cerrar clientes que se comunican en inglés, abriéndote la puerta a presupuestos de mayor rentabilidad.</p>
+        <p>Adaptamos toda tu presencia digital para atraer y cerrar clientes que se comunican en inglés o en español, abriéndote la puerta a obras de alto valor.</p>
         <ul class="service-items">
-          <li>Web y catálogos completos en español e inglés sin errores</li>
-          <li>Textos adaptados a la forma de comprar de clientes internacionales</li>
-          <li>Filtro y recepción de contactos en ambos idiomas sin líos</li>
-          <li>Atención y soporte continuado para ambos mercados</li>
+          <li>20 videos al mes adaptados a cada mercado (10 en español y 10 en inglés nativo)</li>
+          <li>Identidad sonora de marca y álbum propio libre de derechos</li>
+          <li>24 publicaciones mensuales de autoridad en LinkedIn y redes</li>
+          <li>Web simétrica en español e inglés con soporte preferente 24/7</li>
         </ul>
         <div class="service-price">
-          <div class="price-setup">€ 5.900</div>
-          <div class="price-monthly">Implementación total + <strong>€950/mes</strong> de gestión completa</div>
+          <div class="price-setup">€ 4.900</div>
+          <div class="price-monthly">Implementación total + <strong>€1.750/mes</strong> de gestión dual</div>
         </div>
-        <a class="service-cta-link" href="#solicitar" data-plan="expansion-global">Ver planes →</a>
+        <a class="service-cta-link" href="#solicitar" data-plan="bilingual-dominance">Ver planes →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HERRAMIENTAS GRATUITAS Y SOFTWARE RECOMENDADO -->
+<section class="section fast-quotes-bridge" id="herramientas-gratis">
+  <div class="shell">
+    <div class="fq-card">
+      <div class="fq-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+        Herramientas gratuitas y software verificado · Por 4HOME
+      </div>
+      <div class="fq-grid">
+        <div class="fq-text">
+          <h2>¿Prefieres herramientas para usarlas tú mismo? <span>Gratis y sin tarjeta</span></h2>
+          <p>
+            Si todavía no necesitas la gestión completa de la agencia, calcula presupuestos en 60 segundos con margen asegurado, genera guiones para videos y prueba el software recomendado en español (Clientify, QuoteIQ, OpusClip).
+          </p>
+          <div class="fq-features">
+            <span class="fq-feat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Calculadora de presupuestos en 60 segundos</span>
+            <span class="fq-feat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Generador de guiones virales</span>
+            <span class="fq-feat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Margen del 40% protegido</span>
+            <span class="fq-feat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Software verificado en español</span>
+          </div>
+        </div>
+        <div class="fq-action">
+          <a href="https://app.4homehq.com/es/tools" target="_blank" rel="noopener" class="btn btn-fq">
+            <span>Ver herramientas y programas</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+          <span class="fq-hint">Herramientas 100% gratuitas · Sin registro de tarjeta</span>
+        </div>
       </div>
     </div>
   </div>
@@ -632,62 +693,60 @@
     <div class="pricing-grid">
       <div class="pricing-card">
         <div class="pricing-head">
-          <span class="pricing-eje">Para Empezar con Fuerza</span>
-          <h3>Web Signature</h3>
-          <div class="pricing-setup"><span class="pricing-cur">€</span><span class="pricing-amount">2.450</span></div>
+          <span class="pricing-eje">Videos y música para redes</span>
+          <h3>Motor de Contenido Viral</h3>
+          <div class="pricing-setup"><span class="pricing-cur">€</span><span class="pricing-amount">1.200</span></div>
           <span class="pricing-setup-label">pago único de puesta en marcha</span>
-          <div class="pricing-monthly-tag">+ €190 / mes mantenimiento y soporte</div>
+          <div class="pricing-monthly-tag">+ €890 / mes producción mensual</div>
         </div>
         <div class="pricing-body">
           <ul class="pricing-items">
-            <li><span class="chk">✓</span> Página web de apertura instantánea (&lt;1s en móvil)</li>
-            <li><span class="chk">✓</span> Textos redactados para convencer y transmitir confianza</li>
-            <li><span class="chk">✓</span> Formulario con avisos directos a tu WhatsApp y correo</li>
-            <li><span class="chk">✓</span> Tu web siempre activa y protegida con copias diarias</li>
-            <li><span class="chk">✓</span> Ajustes y cambios de contenido incluidos cada mes</li>
-            <li><span class="chk">✓</span> Cero complicaciones técnicas para ti</li>
+            <li><span class="chk">✓</span> 12 videos virales al mes en formato vertical (9:16)</li>
+            <li><span class="chk">✓</span> Pistas de música original y audio de marca exclusivo</li>
+            <li><span class="chk">✓</span> 15 publicaciones de autoridad para LinkedIn e Instagram</li>
+            <li><span class="chk">✓</span> Voz de locutor profesional y subtítulos dinámicos</li>
+            <li><span class="chk">✓</span> Listos para publicar en Instagram Reels, TikTok y YouTube</li>
           </ul>
-          <a href="#solicitar" class="pricing-btn" data-plan="web-signature">Solicitar Propuesta</a>
+          <a href="#solicitar" class="pricing-btn" data-plan="viral-engine">Solicitar Propuesta</a>
         </div>
       </div>
       <div class="pricing-card featured">
         <div class="pricing-head">
-          <span class="pricing-eje">La Más Completa para Crecer</span>
-          <h3>Ecosistema Completo</h3>
-          <div class="pricing-setup"><span class="pricing-cur">€</span><span class="pricing-amount">4.800</span></div>
+          <span class="pricing-eje">★ La más completa para crecer</span>
+          <h3>Ecosistema de Autoridad y Video</h3>
+          <div class="pricing-setup"><span class="pricing-cur">€</span><span class="pricing-amount">2.850</span></div>
           <span class="pricing-setup-label">pago único de puesta en marcha</span>
-          <div class="pricing-monthly-tag">+ €390 / mes soporte preferente y mejoras</div>
+          <div class="pricing-monthly-tag">+ €1.190 / mes gestión total</div>
         </div>
         <div class="pricing-body">
           <ul class="pricing-items">
-            <li><span class="chk">✓</span> Web corporativa completa de hasta 10 páginas</li>
-            <li><span class="chk">✓</span> Calculadora interactiva para que los clientes estimen precios</li>
-            <li><span class="chk">✓</span> Panel privado para que tus clientes sigan sus trabajos</li>
+            <li><span class="chk">✓</span> Todo lo del Motor de Contenido (12 videos + música + 15 publicaciones)</li>
+            <li><span class="chk">✓</span> Página web de apertura instantánea (&lt;1s en móvil)</li>
+            <li><span class="chk">✓</span> Calculadora interactiva para que los clientes coticen rápido</li>
+            <li><span class="chk">✓</span> Avisos automáticos a tu WhatsApp y CRM al entrar contactos</li>
             <li><span class="chk">✓</span> Optimización mensual para mantenerte arriba en Google</li>
-            <li><span class="chk">✓</span> Atención prioritaria en menos de 4 horas hábiles</li>
-            <li><span class="chk">✓</span> Hasta 8 horas de mejoras y nuevas funciones al mes</li>
           </ul>
-          <a href="#solicitar" class="pricing-btn" data-plan="enterprise-ecosystem">Solicitar Propuesta</a>
+          <a href="#solicitar" class="pricing-btn" data-plan="authority-ecosystem">Solicitar Propuesta</a>
         </div>
       </div>
       <div class="pricing-card">
         <div class="pricing-head">
-          <span class="pricing-eje">Para Clientes Internacionales</span>
-          <h3>Expansión Bilingüe</h3>
-          <div class="pricing-setup"><span class="pricing-cur">€</span><span class="pricing-amount">5.900</span></div>
+          <span class="pricing-eje">Para clientes internacionales</span>
+          <h3>Expansión Bilingüe Completa</h3>
+          <div class="pricing-setup"><span class="pricing-cur">€</span><span class="pricing-amount">4.900</span></div>
           <span class="pricing-setup-label">pago único de puesta en marcha</span>
-          <div class="pricing-monthly-tag">+ €950 / mes gestión total en dos idiomas</div>
+          <div class="pricing-monthly-tag">+ €1.750 / mes gestión dual en dos idiomas</div>
         </div>
         <div class="pricing-body">
           <ul class="pricing-items">
+            <li><span class="chk">✓</span> 20 videos al mes (10 en español y 10 en inglés con voz nativa)</li>
+            <li><span class="chk">✓</span> Álbum de marca completo y diseño sonoro exclusivo</li>
+            <li><span class="chk">✓</span> 24 publicaciones mensuales de autoridad en LinkedIn y redes</li>
             <li><span class="chk">✓</span> Presencia digital completa en Español y en Inglés</li>
-            <li><span class="chk">✓</span> Catálogos y mensajes adaptados a clientes extranjeros</li>
-            <li><span class="chk">✓</span> Cumplimiento legal y normativo para España y EE. UU.</li>
             <li><span class="chk">✓</span> Captación y recepción de solicitudes en ambos idiomas</li>
-            <li><span class="chk">✓</span> Soporte técnico preferente en ambos idiomas</li>
-            <li><span class="chk">✓</span> Gestión y mantenimiento integral mes a mes</li>
+            <li><span class="chk">✓</span> Soporte técnico preferente y atención continua 24/7</li>
           </ul>
-          <a href="#solicitar" class="pricing-btn" data-plan="expansion-global">Solicitar Propuesta</a>
+          <a href="#solicitar" class="pricing-btn" data-plan="bilingual-dominance">Solicitar Propuesta</a>
         </div>
       </div>
     </div>
@@ -716,23 +775,30 @@
         <h3>¿Qué necesitas?</h3>
         <p class="step-sub">Elige el tipo de proyecto que más se acerca a lo que buscas.</p>
         <div class="radio-grid">
-          <label class="radio-option"><input type="radio" name="proyecto" value="web-basica" /><span class="radio-dot"></span>Web Comercial & Captación</label>
-          <label class="radio-option"><input type="radio" name="proyecto" value="web-enterprise" /><span class="radio-dot"></span>Ecosistema Web Completo</label>
-          <label class="radio-option"><input type="radio" name="proyecto" value="contenido" /><span class="radio-dot"></span>Producción de Vídeo & Reels</label>
-          <label class="radio-option"><input type="radio" name="proyecto" value="bilingue" /><span class="radio-dot"></span>Expansión Bilingüe (ES / EN)</label>
+          <label class="radio-option"><input type="radio" name="proyecto" value="viral-engine" /><span class="radio-dot"></span>Motor de Contenido Viral (Videos + Música original)</label>
+          <label class="radio-option"><input type="radio" name="proyecto" value="authority-ecosystem" /><span class="radio-dot"></span>Ecosistema de Autoridad y Video (Web + Videos + Calculadora)</label>
+          <label class="radio-option"><input type="radio" name="proyecto" value="bilingual-dominance" /><span class="radio-dot"></span>Expansión Bilingüe Completa (ES + EN)</label>
+          <label class="radio-option"><input type="radio" name="proyecto" value="self-serve" /><span class="radio-dot"></span>Herramientas Gratuitas y Software (Clientify, QuoteIQ, OpusClip)</label>
         </div>
         <div class="wizard-nav"><span></span><button class="btn-next" id="next1" onclick="goStep(2)" disabled>Siguiente →</button></div>
       </div>
       <!-- Paso 2 -->
       <div class="wizard-step" id="step2">
         <span class="step-count">Paso 2 de 4</span>
-        <h3>¿Cuál es tu rango de inversión inicial?</h3>
+        <h3>¿Cuál es tu rango de inversión mensual estimada?</h3>
         <p class="step-sub">Nos ayuda a prepararte la propuesta más adecuada desde el principio.</p>
         <div class="radio-grid">
-          <label class="radio-option"><input type="radio" name="presupuesto" value="1200-2500" /><span class="radio-dot"></span>€ 1.200 – 2.500</label>
-          <label class="radio-option"><input type="radio" name="presupuesto" value="2500-5000" /><span class="radio-dot"></span>€ 2.500 – 5.000</label>
-          <label class="radio-option"><input type="radio" name="presupuesto" value="5000-8000" /><span class="radio-dot"></span>€ 5.000 – 8.000</label>
-          <label class="radio-option"><input type="radio" name="presupuesto" value="8000+" /><span class="radio-dot"></span>+ de € 8.000</label>
+          <label class="radio-option"><input type="radio" name="presupuesto" value="under-1000" /><span class="radio-dot"></span>&lt; € 1.000 / mes (Herramientas gratuitas y software recomendado)</label>
+          <label class="radio-option"><input type="radio" name="presupuesto" value="1000-2500" /><span class="radio-dot"></span>€ 1.000 – 2.500 / mes</label>
+          <label class="radio-option"><input type="radio" name="presupuesto" value="2500-5000" /><span class="radio-dot"></span>€ 2.500 – 5.000 / mes</label>
+          <label class="radio-option"><input type="radio" name="presupuesto" value="5000+" /><span class="radio-dot"></span>+ de € 5.000 / mes</label>
+        </div>
+        <div id="selfServeCalloutEs" style="display:none;margin-top:1.25rem;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);border-radius:12px;padding:14px 18px;font-size:.875rem;color:var(--text-main);">
+          <strong style="color:var(--accent);display:block;margin-bottom:4px;">💡 ¿Buscas herramientas por tu cuenta?</strong>
+          Puedes usar nuestras calculadoras de presupuestos gratis y probar el software recomendado para profesionales (Clientify, QuoteIQ, OpusClip) sin costo inicial.
+          <div style="margin-top:10px;">
+            <a href="https://app.4homehq.com/es/tools" target="_blank" rel="noopener" style="display:inline-block;background:var(--accent);color:#000;font-weight:700;font-size:.8rem;padding:8px 16px;border-radius:8px;text-decoration:none;">Ver herramientas y programas gratuitos →</a>
+          </div>
         </div>
         <div class="wizard-nav"><button class="btn-back" onclick="goStep(1)">← Atrás</button><button class="btn-next" id="next2" onclick="goStep(3)" disabled>Siguiente →</button></div>
       </div>
@@ -756,7 +822,7 @@
         <span class="step-count">Paso 4 de 4</span>
         <h3>¿Algo más que debamos saber?</h3>
         <p class="step-sub">Opcional — cuéntanos sobre tu situación actual o lo que ya tienes.</p>
-        <div class="form-field"><label for="f-notas">Notas adicionales</label><textarea id="f-notas" placeholder="Ej: Tenemos una web en WordPress que carga muy lento. Queremos rediseñarla y añadir una calculadora de presupuestos…"></textarea></div>
+        <div class="form-field"><label for="f-notas">Notas adicionales</label><textarea id="f-notas" placeholder="Ej: Queremos producir 12 videos mensuales a partir de nuestras obras, tener música propia y una página para presupuestos rápidos…"></textarea></div>
         <div class="form-field" style="margin-top:.5rem">
           <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-size:.85rem;color:var(--text-muted);">
             <input type="checkbox" id="f-privacidad" required style="width:auto;margin-top:3px;accent-color:var(--accent);" />
@@ -769,8 +835,11 @@
       <div class="intake-success" id="intakeSuccess">
         <div class="success-icon">✓</div>
         <h3>¡Solicitud recibida!</h3>
-        <p>Revisamos tu solicitud en menos de 24 horas hábiles y te enviamos una propuesta personalizada a <strong id="successEmail"></strong>.<br><br>Revisa tu bandeja de entrada — puede que llegue antes.</p>
+        <p>Revisamos tu solicitud en menos de 24 horas hábiles y te enviamos una propuesta personalizada a <strong id="successEmail"></strong>.<br><br>Mientras tanto, puedes ver nuestro <a href="https://app.4homehq.com/es/tools" target="_blank" rel="noopener" style="color:var(--accent);font-weight:700;text-decoration:underline;">directorio de herramientas gratuitas y software recomendado</a>.</p>
       </div>
+    </div>
+  </div>
+</section>
     </div>
   </div>
 </section>
@@ -851,8 +920,13 @@ document.querySelectorAll('.stat-num[data-target]').forEach(c => obs.observe(c))
 document.querySelectorAll('[data-plan]').forEach(btn => {
   btn.addEventListener('click', e => {
     e.preventDefault();
-    const map = {'web-signature':'web-basica','enterprise-ecosystem':'web-enterprise','contenido-autoridad':'contenido','expansion-global':'bilingue'};
-    const val = map[btn.dataset.plan];
+    const map = {
+      'viral-engine': 'viral-engine',
+      'authority-ecosystem': 'authority-ecosystem',
+      'bilingual-dominance': 'bilingual-dominance',
+      'self-serve': 'self-serve'
+    };
+    const val = map[btn.dataset.plan] || btn.dataset.plan;
     if (val) {
       const r = document.querySelector(`input[name="proyecto"][value="${val}"]`);
       if (r) {
@@ -878,6 +952,13 @@ function updateRadioVisuals(name) {
       }
     }
   });
+
+  // Alerta de derivación si el presupuesto es bajo
+  const selectedBudget = document.querySelector('input[name="presupuesto"]:checked')?.value;
+  const selfServeAlert = document.getElementById('selfServeCalloutEs');
+  if (selfServeAlert) {
+    selfServeAlert.style.display = (selectedBudget === 'under-1000') ? 'block' : 'none';
+  }
 }
 
 function goStep(n) {

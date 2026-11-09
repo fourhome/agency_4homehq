@@ -1,6 +1,11 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "rewrites": [
+    { "source": "/es", "destination": "/es/index.html" },
+    { "source": "/es/", "destination": "/es/index.html" },
+    { "source": "/es/privacidad", "destination": "/es/privacidad.html" }
+  ],
   "headers": [
     {
       "source": "/(.*)",

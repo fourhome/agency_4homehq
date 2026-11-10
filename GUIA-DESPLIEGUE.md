@@ -43,8 +43,10 @@ Este paquete contiene todo lo necesario para publicar la página de **4HOME Agen
    - **Nunca** incluyas `"version": 2` ni `"name"` en `vercel.json`. En Vercel moderno, `"version": 2` sin bloque `"builds"` fuerza el modo serverless e ignora los archivos HTML estáticos, provocando `404 NOT_FOUND` en todo el sitio.
    - El archivo `vercel.json` debe contener únicamente `cleanUrls`, `trailingSlash` y los bloques `headers`/`redirects`.
 
-2. **Sincronización del Alias de Dominio:**
-   - Si tras desplegar una versión nueva el dominio sigue mostrando un estado anterior o 404, ejecuta `npx vercel alias ls` para comprobar a qué despliegue apunta `agency.4homehq.com`, y reasígnalo con `npx vercel alias set <deployment-url> agency.4homehq.com`.
+3. **Desconexión del repositorio raíz (`fourhome/box4home`):**
+   - El proyecto Vercel `agency-4homehq` **NO** debe estar conectado al repositorio Git `fourhome/box4home`.
+   - Si se conecta a `box4home`, cualquier commit en la caja disparará un despliegue automático con Root Directory `.`, Vercel no encontrará los archivos estáticos de la agencia, y desplegará un build vacío provocando `404 NOT_FOUND` en `agency.4homehq.com` y `agency.4homehq.com/es`.
+   - Para verificar o corregir: `npx vercel git disconnect -y`. Los despliegues de la agencia se hacen siempre directamente desde esta carpeta con `npx vercel --prod --yes`.
 
 ---
 

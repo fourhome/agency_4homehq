@@ -64,6 +64,11 @@
       padding:8px 20px;border-radius:var(--radius);font-size:.875rem!important;
       transition:background .2s,transform .15s}
     .nav__cta:hover{background:var(--accent-soft)!important;transform:translateY(-1px)}
+    .nav__lang{display:inline-flex;align-items:center;gap:3px;background:rgba(30,41,59,.8);border:1px solid var(--border);padding:3px 8px;border-radius:6px;font-family:var(--mono);font-size:.78rem;font-weight:600;letter-spacing:.04em}
+    .nav__lang a{color:var(--text-muted)!important;text-decoration:none;padding:2px 6px;border-radius:4px;font-size:.78rem!important;font-family:var(--mono)!important;font-weight:600!important;line-height:1.2;transition:color .2s,background .2s}
+    .nav__lang a.active{color:var(--text-display)!important;background:rgba(51,65,85,.9)}
+    .nav__lang a:hover:not(.active){color:var(--accent)!important}
+    .nav__lang .sep{color:var(--border);font-weight:300;user-select:none;font-size:.75rem;padding:0 1px}
     .nav__burger{display:none;background:none;border:none;cursor:pointer;padding:6px}
     .nav__burger span{display:block;width:22px;height:2px;background:var(--text);margin:4px 0;border-radius:2px;transition:.3s}
 
@@ -376,6 +381,11 @@
       <a href="#servicios">Servicios</a>
       <a href="#planes">Inversión</a>
       <a href="#portfolio">Trabajos</a>
+      <div class="nav__lang" aria-label="Idioma">
+        <a href="/">EN</a>
+        <span class="sep">/</span>
+        <a href="/es" class="active">ES</a>
+      </div>
       <a href="#solicitar" class="nav__cta">Solicitar Propuesta</a>
     </nav>
   </div>
@@ -867,6 +877,11 @@
         <div class="footer-col">
           <h4>Legal</h4>
           <a href="/es/privacidad.html">Política de Privacidad</a>
+          <div class="nav__lang" style="margin-top:0.75rem" aria-label="Idioma">
+            <a href="/">EN</a>
+            <span class="sep">/</span>
+            <a href="/es" class="active">ES</a>
+          </div>
         </div>
       </div>
     </div>

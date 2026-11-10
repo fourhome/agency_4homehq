@@ -2,6 +2,11 @@
 
 Este paquete contiene todo lo necesario para publicar la página de **4HOME Agency** en el subdominio `agency.4homehq.com`.
 
+> ⚠️ **Diferencia crítica de despliegues en el ecosistema 4HOME:**
+> - **Sitio principal (`4homehq.com` / `fourhome/web_4homehq`):** Tiene la integración oficial de Vercel GitHub App conectada. Se auto-despliega en segundos con cada `git push`.
+> - **Agencia (`agency.4homehq.com`) y Portal (`app.4homehq.com`):** Fueron creados mediante **Vercel CLI manual**. Hacer `git push` a GitHub **NO** despliega a producción automáticamente. Para publicar cambios en la agencia o en el portal, siempre se debe ejecutar el despliegue con Vercel CLI (`npx vercel --prod`).
+
+
 ---
 
 ## 📁 Archivos del Bundle
